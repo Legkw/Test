@@ -1,2 +1,23 @@
 language: python
-script: pytest 
+python:  
+    - 3.4
+    - 3.6
+    - 3.7-dev
+install: python3 -m pip install -r requirements.txt
+script: python3 -m pytest 
+
+after_success:
+    - python3 -m pip install pytest-cov codecov
+    - python3 -m pytest --cov=./
+    - codecov
+    
+deploy:
+   provider: cloudfoundry
+   username: e.antoniou@aethon.gr
+   password: "JHTkd2iD7B69EqCkwqBd4aOu3HfbgMlJtCD4Zdfna34aWMzSmyKUs8phn/MHeUMMPrpZZakBg7/2kImlxSFgtuwHSTxuu948Gcz4lWEY6d/iv7HJwED2EQE2CHrxJwDyQZUEzOu7LBxeadBiGXjRRd1CxyhWEoGbj0o+Yyx1WpWT5wO0awQkSNiUwvYwGrrM/C7+UcLAzbChr0N5cZVHk5HxAn9FOHjc04KkL0kQFcPHgZKp5M2IVDbmZrtuMfSiz8tU/c4XxZYWun0DNvf/TsB7VTguTr+KTJMz3wgOfIUZFxBOBIKZWvJfS7Do0ZpeGH4/NbA4M6pD1eOaWz2GlbTTxznCip7YUJYheLNdGIxsKIxqMaGVTPe8OacJ8u+RfEnBUaSi0OHmmZsK451LM9rc5qiTevhDvUpB7at33ET8seo5BQna1Z7YRpQLmJb7vvq95aGnzDQ6tOQLIHpZKa4GOc8i3Gj1L/REpc29PV9pUalnkPKVgyfacoY0Px9sv+olCdwVXn/VoPJPsQCLa+jh7w5K0kWuKgCMCbfdPhP6psfmhZLXszg70ihqBZPA5/dVIuVHX3bVK7Pj5Qb+ik8hK4Mhbbk2AyoKA9TfGgJHGhOHxbtg79hBfF6UaqlPWzUYah8yxSzJ/EtrXjWwcAVE2IxstMIr3P4Yw7+GUiA="
+   api: https://api.run.pivotal.io
+   organization: Legkw.org
+   space: development
+   on:
+       branch: master
+       python: 3.6
