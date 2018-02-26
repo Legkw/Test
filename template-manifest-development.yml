@@ -1,0 +1,6 @@
+---
+inherit: manifest-base.yml
+applications:
+ - name: APP_NAME
+   env:
+     APP_DEBUG: 1

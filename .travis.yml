@@ -10,6 +10,8 @@ after_success:
     - python3 -m pip install pytest-cov codecov
     - python3 -m pytest --cov=./
     - codecov
+
+    - ./make_manifest.sh
     
 deploy:
    provider: cloudfoundry
