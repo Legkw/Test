@@ -11,7 +11,7 @@ after_success:
     - python3 -m pytest --cov=./
     - codecov
 
-    - ./make_manifest.sh
+    - ./make_manifest.sh development
     
 deploy:
    provider: cloudfoundry
