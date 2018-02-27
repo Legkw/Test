@@ -6,7 +6,7 @@ def create_app():
 
     @app.route('/ping')
     def ping():
-        return jsonify(ping='pong')
+        return jsonify(ping ='pong alex')
 
     return app
 
