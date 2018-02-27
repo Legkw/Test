@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-
+from os import getenv
 
 def create_app():
     app = Flask(__name__)
@@ -13,4 +13,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(port=5000)
+    app.run(port=getenv('PORT', '5000'), host='0.0.0.0', threaded=True)
