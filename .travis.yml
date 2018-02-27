@@ -11,8 +11,9 @@ after_success:
     - python3 -m pytest --cov=./
     - codecov
 
+before_deploy:
     - ./make_manifest.sh development
-    
+
 deploy:
    provider: cloudfoundry
    username: e.antoniou@aethon.gr
