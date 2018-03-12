@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SPACE=$1
-APP_NAME="skeleton-"`git rev-parse --short HEAD`
+APP_NAME="skeleton-"$(git rev-parse --short HEAD)
 TEMPLATE_MANIFEST_FILE="template-manifest-$SPACE.yml"
 MANIFEST_FILE="manifest.yml"
 

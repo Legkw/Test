@@ -1,10 +1,10 @@
 language: python
-python:  
+python:  #specify python versions
     - 3.4
     - 3.6
-    - 3.7-dev
+    - 3.7-dev #development branch
 install: python3 -m pip install -r requirements.txt
-script: python3 -m pytest 
+script: python3 -m pytest #runs all the tests that start with "test" and end with ".py"
 
 after_success:
     - python3 -m pip install pytest-cov codecov
