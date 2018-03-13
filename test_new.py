@@ -5,4 +5,4 @@ def inc(x):
 
 @pytest.mark.xfail
 def test_answer():
-    assert inc(3) == 5
+    assert inc(3) == 8
