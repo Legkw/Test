@@ -4,12 +4,15 @@ from os import getenv
 def create_app():
     app = Flask(__name__)
 
-    @app.route('/ping')
+    @app.route('/ping') # the extension of the url
     def ping():
-        return jsonify(ping ='pong alex')
+        return jsonify(ping ='pong')
 
     return app
 
+	#def test_api_ping(client):
+#res = client.get(url_for('api.ping'))
+#assert res.json == {'ping': 'pong'}
 
 if __name__ == '__main__':
     app = create_app()
