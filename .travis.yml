@@ -23,9 +23,9 @@ deploy:
      api: https://api.run.pivotal.io
      organization: Legkw.org
      space: development
-       on:
-         branch: master
-         python: 3.6
+     on:
+       branch: master
+       python: 3.6
    - provider: cloudfoundry
      username: e.antoniou@aethon.gr
      password: 
@@ -33,6 +33,6 @@ deploy:
      api: https://api.run.pivotal.io
      organization: Legkw.org
      space: production
-       on:
-         branch: production
-         python: 3.6
+     on:
+       branch: production
+       python: 3.6
