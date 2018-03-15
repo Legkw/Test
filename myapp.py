@@ -6,7 +6,7 @@ def create_app():
 
     @app.route('/ping') # the extension of the url
     def ping():
-        return jsonify(ping ='pong alex')
+        return jsonify(ping ='pong')
 
     return app
 
