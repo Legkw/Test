@@ -3,7 +3,7 @@ from flask import url_for
 
 
 class TestApp:
-    @pytest.mark.xfail
+    #@pytest.mark.xfail
     def test_ping(self, client):
         res = client.get(url_for('ping'))
         assert res.status_code == 200
