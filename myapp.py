@@ -6,7 +6,6 @@ def create_app():
 
     @app.route('/ping') # the extension of the url
     def ping():
-		assert 2 + 2 == 5
         return jsonify(ping ='pong')
 
     return app
