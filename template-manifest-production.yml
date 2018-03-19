@@ -2,5 +2,3 @@
 inherit: manifest-base.yml
 applications:
  - name: APP_NAME
-   env:
-     FLASK_DEBUG: 1
