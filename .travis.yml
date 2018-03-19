@@ -11,8 +11,10 @@ after_success:
     - python3 -m pytest --cov=./
     - codecov
 
+# we assume branch name is the same as CF space name    
+    
 before_deploy:
-    - ./make_manifest.sh development
+    - ./make_manifest.sh $TRAVIS_BRANCH
     - python3 make_runtime_txt.py
     
 deploy:
@@ -22,7 +24,7 @@ deploy:
        secure: d3xAO60t7XNKcBo4Mi3gjBIdh4Vb/1DCyE3d/qyeTBLxbd1g+gEdsuMr+/00l142r4PRYB/CUt5bmSrS8ivEjnE5JJIopfSl23Yh9jl1g27tanQ5ZQI2MVe+q306pNophQpPNkhI3HPHhVNr3fcrUonTup+AEN9mmxeeB2gLBbAI+rFsUJYeEUyFQSJi/DOCW6gPbbN2G2HhJmfZ3oT3AR+ON4muVg9DoprNmpYKkwWczNvSF+J/kLg4tN7dQScduO0R8uip4KlBpHsR57gOs4+CiPWxwYw6vVKeIHWlLrzyviJ0D1QQI4AqLkB6LiX4UEwBwFNdk8ImCPFpRklYIYip2YWvkuchs24sfw0mvw2ebM3x6CbEWVLCj9Fn8ZcacS50VfD94MQK7/co3PY5bmtEjZVmPmL6ToH7zru9HSSBLKKPE8hvDKP7/7b0GYriPyYqFrtYRvOEDfYAv1+73+q2Wv86pYmDI43HfKEMIaB12kpUGoo3fIajbsQLYnSqwVNHJe+gu6zRQiwS7JG9xCFRdOW8by6eBanfy2HdIu2YJzmbbiRzQS7EcWlJ5KUXs9ZaK2ZXZDv/OfNk4UgCVHxtr4UFQaLblA6bOecEH4FacBdPnFn57ZINX0wWdHui2lOCl2d7+vBkeueN4V08oSvpWZX36fRdPjlHjB3ZJiM=
      api: https://api.run.pivotal.io
      organization: Legkw.org
-     space: development
+     space: master
      on:
        branch: master
        python: 3.6
