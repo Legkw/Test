@@ -1,11 +1,11 @@
 # conftest.py
-import pytest
+#import pytest
 
-from myapp import create_app
+#from myapp import create_app
 
 
-@pytest.fixture
-def app():
-    app = create_app()
-    app.debug = True
-    return app
+#@pytest.fixture
+#def app():
+#    app = create_app()
+#    app.debug = True
+#    return app
