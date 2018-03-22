@@ -14,10 +14,7 @@ def create_app():
 		
     return app
 
-	#def test_api_ping(client):
-#res = client.get(url_for('api.ping'))
-#assert res.json == {'ping': 'pong'}
-
+	
 if __name__ == '__main__':
     app = create_app()
 	
