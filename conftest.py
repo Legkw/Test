@@ -1,11 +1,16 @@
-# conftest.py
-#import pytest
+import pytest
+from unittest.mock import Mock 
+from myapp import create_app
 
-#from myapp import create_app
 
+@pytest.fixture
+def app():
+    storage = Mock()
+    storage.add = Mock()
+    storage.get = Mock()
+    storage.delete = Mock()
 
-#@pytest.fixture
-#def app():
-#    app = create_app()
-#    app.debug = True
-#    return app
+    app = create_app(storage)
+    app.debug = True
+    return app
+   
