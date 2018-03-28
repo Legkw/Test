@@ -1,6 +1,6 @@
 import pytest, json
 from flask import url_for
-from unittest.mock import Mock 
+from unittest.mock import Mock
 from myapp import create_app
 
 @pytest.fixture
@@ -10,7 +10,7 @@ def mock_storage():
     storage.get = Mock()
     storage.delete = Mock()
     return storage
-   
+
 @pytest.fixture
 def app(mock_storage):
     app = create_app(mock_storage)
