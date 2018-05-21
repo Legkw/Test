@@ -1,6 +1,7 @@
 class inmemory:
-    def __init__(self):
-        self.DB = {}
+    def __init__(self, dictionary = None):
+        if dictionary is None: dictionary = {}
+        self.DB = dictionary
 	
     def add(self, item):
         item.id = len(self.DB)

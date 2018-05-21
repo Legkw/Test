@@ -4,15 +4,15 @@ from os import getenv
 import mymodel, mystorage
 
 		
-def create_app():    
+def create_app(storage = mystorage.inmemory()):    
     app = Flask(__name__)
     api = Api(app)
     model_neo = api.model('model_neo', mymodel.model_neo)
     model_idi = api.model('model_idi', mymodel.model_idi)
 
-    storage = mystorage.inmemory()
+    storage = storage
 
-    @api.route('/')
+    @api.route('/items')
     class Items(Resource):
         @api.doc('create_item')
         @api.expect(model_neo)
@@ -23,7 +23,7 @@ def create_app():
             '''Create a new item'''
             return item
 		
-    @api.route('/<int:id>')
+    @api.route('/item/<int:id>')
     @api.param('id', 'item identifier')
     class Item(Resource):
         @api.marshal_with(model_idi)
