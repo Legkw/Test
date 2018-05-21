@@ -1,16 +1,18 @@
 from flask import Flask
 from flask_restplus import Api, Resource
+from flask_cors import CORS
 from os import getenv
 import mymodel, mystorage
-
+    
 		
 def create_app(storage = mystorage.inmemory()):    
     app = Flask(__name__)
+    
+    CORS(app)
     api = Api(app)
+ 
     model_neo = api.model('model_neo', mymodel.model_neo)
     model_idi = api.model('model_idi', mymodel.model_idi)
-
-    storage = storage
 
     @api.route('/items')
     class Items(Resource):
@@ -18,11 +20,11 @@ def create_app(storage = mystorage.inmemory()):
         @api.expect(model_neo)
         @api.marshal_with(model_idi, code=201)
         def post(self, **kwargs):
-            item = mymodel.absence(**api.payload)
+            item =mymodel.absence(**api.payload)
             storage.add(item)
             '''Create a new item'''
             return item
-		
+            		
     @api.route('/item/<int:id>')
     @api.param('id', 'item identifier')
     class Item(Resource):
