@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="watch-example">
+  <h4>get an existing item by id:</h4>
+  <input v-model="id">
+  <button v-on:click="get">get</button>
+
+  <p>{{ date_from }} -- {{ date_till }}</p>
+
+  <h4>add a new item:</h4>
+  from: <input v-model="new_date_from"></br>
+  till: <input v-model="new_date_till"> 
+  <button v-on:click="post">post</button> 
+</div>
+
+  <script src="index.js"></script>
+</body>
+</html>
