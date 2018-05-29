@@ -22,7 +22,7 @@ var watchExampleVM = new Vue({
     },
     post:  function() {
       var vm = this
-      axios.post('http://localhost:5000/items/', {
+      axios.post('http://localhost:5000/items', {
           date_from: vm.new_date_from,
           date_till: vm.new_date_till,
           })
