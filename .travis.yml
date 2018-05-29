@@ -1,6 +1,6 @@
 language: python
 python:  #specify python versions
-    - 3.4
+    - 3.4-dev
     - 3.6
     - 3.7-dev #development branch
 install: python3 -m pip install -r requirements.txt
