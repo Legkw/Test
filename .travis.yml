@@ -1,7 +1,7 @@
 language: python
 python:  #specify python versions
-    - 3.4-dev
-    - 3.6
+    - 3.4
+    - 3.6-dev
     - 3.7-dev #development branch
 install: python3 -m pip install -r requirements.txt
 script: PYTHONPATH=code python3 -m pytest #runs all the tests that start with "test" and end with ".py"
@@ -28,7 +28,7 @@ deploy:
      space: master
      on:
        branch: master
-       python: 3.4
+       python: 3.6
    - provider: cloudfoundry
      username: e.antoniou@aethon.gr
      password: 
@@ -38,4 +38,4 @@ deploy:
      space: production
      on:
        branch: production
-       python: 3.4
+       python: 3.6
