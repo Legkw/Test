@@ -1,8 +1,7 @@
 language: python
 python:  #specify python versions
     - 3.4
-    - 3.5
-    - 3.6
+    - 3.6.4
     - 3.7-dev 
 install: python3 -m pip install -r requirements.txt
 script: PYTHONPATH=code python3 -m pytest #runs all the tests that start with "test" and end with ".py"
