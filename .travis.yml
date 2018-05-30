@@ -28,7 +28,7 @@ deploy:
      space: master
      on:
        branch: master
-       python: 3.5
+       python: 3.6.4
    - provider: cloudfoundry
      username: e.antoniou@aethon.gr
      password: 
@@ -38,4 +38,4 @@ deploy:
      space: production
      on:
        branch: production
-       python: 3.5
+       python: 3.6.4
