@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="index.css">
   <title>My first Vue app</title>
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  
+    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+    
 </head>
 <body>
 
 <div id="watch-example">
+  <input v-model="apiurl">
+
+
   <h4>get an existing item by id:</h4>
   <input v-model="id">
   <button v-on:click="get">get</button>
@@ -15,8 +27,8 @@
   <p>{{ date_from }} -- {{ date_till }}</p>
 
   <h4>add a new item:</h4>
-  from: <input v-model="new_date_from"></br>
-  till: <input v-model="new_date_till"> 
+  from: <md-datepicker v-model="new_date_from" />
+  till: <md-datepicker v-model="new_date_till" /> 
   <button v-on:click="post">post</button> 
 </div>
 

@@ -1,6 +1,9 @@
+Vue.use(VueMaterial.default)
+
 var watchExampleVM = new Vue({
   el: '#watch-example',
   data: {
+    apiurl: '',
     id: '',
     date_from: '?',
     date_till: '?',
@@ -10,7 +13,7 @@ var watchExampleVM = new Vue({
   methods: {
     get:  function () {
       var vm = this
-      axios.get('http://localhost:5000/item/' + this.id)
+      axios.get(vm.apiurl + '/item/' + this.id)
         .then(function (response) {
           vm.date_from = response.data.date_from
           vm.date_till = response.data.date_till
@@ -22,7 +25,7 @@ var watchExampleVM = new Vue({
     },
     post:  function() {
       var vm = this
-      axios.post('http://localhost:5000/items', {
+      axios.post(vm.apiurl + '/items', {
           date_from: vm.new_date_from,
           date_till: vm.new_date_till,
           })
