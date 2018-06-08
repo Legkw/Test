@@ -11,20 +11,27 @@ def create_app(storage = mystorage.inmemory()):
     CORS(app)
     api = Api(app)
  
-    model_neo = api.model('model_neo', mymodel.model_neo)
     model_idi = api.model('model_idi', mymodel.model_idi)
+    model_neo = api.model('model_neo', mymodel.model_neo)
 
     @api.route('/items')
     class Items(Resource):
         @api.doc('create_item')
         @api.expect(model_neo)
-        @api.marshal_with(model_idi, code=201)
+        @api.marshal_with(model_idi)
         def post(self, **kwargs):
-            item =mymodel.absence(**api.payload)
+            item = mymodel.absence(**api.payload)
             storage.add(item)
             '''Create a new item'''
             return item
-            		
+
+        @api.doc('list_items')
+        @api.marshal_with(model_idi)
+        def get(self, **kwargs):
+            items = storage.get()
+            return items
+
+            
     @api.route('/item/<int:id>')
     @api.param('id', 'item identifier')
     class Item(Resource):

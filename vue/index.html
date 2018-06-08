@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="index.css">
-  <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-  
-    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+  <head>
+    <title>a Flask/Vue/Material app</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+    <script src="https://unpkg.com/moment"></script>
+
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
     <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/vue-material@beta"></script>
-    
-</head>
-<body>
+  </head>
+  <body>
+    <div id="app">
+      <md-content>
 
-<div id="watch-example">
-  <input v-model="apiurl">
+        <md-field>
+          <label>API URL: </label>
+          <md-input v-model="apiurl"></md-input>
+        </md-field>
 
+        <md-tabs>
+          <md-tab md-label="get an existing item by id">
+            <md-field>
+              <label>id:</label>
+              <md-input v-model="id"></md-input>
+            </md-field>
+            <md-button v-on:click="fetch">fetch</md-button>
 
-  <h4>get an existing item by id:</h4>
-  <input v-model="id">
-  <button v-on:click="get">get</button>
+            <md-card>
+              <md-card-header>{{ date_from }} -- {{ date_till }}</md-card-header>
+            </md-card>
+          </md-tab>
+          <md-tab md-label="add a new item">
+            <md-field>
+              <label>from:</label>
+              <md-datepicker v-model="new_date_from" />
+            </md-field>
+            <md-field>
+              <label>till:</label> 
+              <md-datepicker v-model="new_date_till" /> 
+            </md-field>
+            <md-button v-on:click="add">add</md-button> 
+          </md-tab>
+          <md-tab md-label="list items">
+            <md-card v-for="item in items" :key="item.id">
+              <md-card-header>{{ item.date_from }} -- {{ item.date_till }}</md-card-header>
+            </md-card>
+            <md-button v-on:click="list">list</md-button> 
+          </md-tab>
+        </md-tabs>
+      </md-content>
 
-  <p>{{ date_from }} -- {{ date_till }}</p>
-
-  <h4>add a new item:</h4>
-  from: <md-datepicker v-model="new_date_from" />
-  till: <md-datepicker v-model="new_date_till" /> 
-  <button v-on:click="post">post</button> 
-</div>
-
-  <script src="index.js"></script>
-</body>
+      <md-dialog :md-active.sync="showDialog">
+        <md-dialog-title>{{ message }}</md-dialog-title>
+      </md-dialog>
+  
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>

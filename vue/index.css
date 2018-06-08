@@ -1,0 +1,9 @@
+body {
+    padding: 40px;
+    background-color: rgb(46, 117, 182);
+
+}
+
+#app {
+        border: 15px white solid;
+}

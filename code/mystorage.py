@@ -7,7 +7,9 @@ class inmemory:
         item.id = len(self.DB)
         self.DB[item.id] = item
 	
-    def get(self, ix):
+    def get(self, ix = None):
+        if ix is None:
+            return list(self.DB.values())
         return self.DB[ix]
         
     def delete(self, ix):
