@@ -4,3 +4,5 @@ applications:
  - name: APP_NAME
    env:
      FLASK_DEBUG: 1
+   services:
+     - db_master
